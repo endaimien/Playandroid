@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+//apply plugin: 'com.neenbedankt.android-apt'
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -10,11 +10,27 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+    defaultConfig {
+        multiDexEnabled true
+    }
+    dexOptions {
+        /*<- Java.exe finished with non-zero exit value 1
+        设置的值不要大于你机器可用的内存，
+        如：Windwos10 4GB 此处设置为 1g*/
+        javaMaxHeapSize "1g"
+    }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    compileOptions {
+
+        sourceCompatibility JavaVersion.VERSION_1_8
+
+        targetCompatibility JavaVersion.VERSION_1_8
+
     }
 }
 
@@ -26,17 +42,23 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
-
-    implementation 'org.jboss.resteasy:resteasy-rxjava2:4.0.0.Beta6'
+    //implementation 'org.jboss.resteasy:resteasy-rxjava2:4.0.0.Beta6'
     //RXJAVA
     implementation 'io.reactivex.rxjava2:rxjava:2.2.4'
     implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
     //DAGGER
-    implementation 'com.squareup.dagger:dagger:1.2.5'
+    /*implementation 'com.google.dagger:dagger:2.x'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.x'*/
+    api"com.google.dagger:dagger:2.14.1"
+    annotationProcessor"com.google.dagger:dagger-compiler:2.14.1"
     //RETROFIT
     implementation 'com.squareup.retrofit2:retrofit:2.5.0'
     //OKHTTP
     implementation 'com.squareup.okhttp3:okhttp-ws:3.4.2'
     //GSON
     implementation 'com.google.code.gson:gson:2.8.5'
+    configurations.all {
+        // OkHttp 3.5.0+ includes the websockets API, so we need this to prevent a conflict
+        exclude module: 'okhttp-ws'
+    }
 }

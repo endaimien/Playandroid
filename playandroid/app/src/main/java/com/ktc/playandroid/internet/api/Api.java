@@ -10,7 +10,7 @@ import com.ktc.playandroid.internet.bean.navigation.NavigationListData;
 import com.ktc.playandroid.internet.bean.project.ProjectClassifyData;
 import com.ktc.playandroid.internet.bean.project.ProjectEssayData;
 
-import javax.validation.constraints.Null;
+//import javax.validation.constraints.Null;
 
 import io.reactivex.Observable;
 import retrofit2.http.Field;
@@ -117,6 +117,6 @@ public interface Api {
      * @return void
      */
     @GET("user/logout/json")
-    Observable<PlayHeader<Null>> logoutforuser();
+    Observable<PlayHeader> logoutforuser();
 
 }
