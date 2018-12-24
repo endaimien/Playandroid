@@ -5,6 +5,7 @@ import android.app.Application;
 import com.ktc.playandroid.dagger.component.AppComponent;
 import com.ktc.playandroid.dagger.component.DaggerAppComponent;
 import com.ktc.playandroid.dagger.module.AppModule;
+import com.ktc.playandroid.dagger.module.HttpModule;
 
 public class PlayAndroidApp extends Application {
     public static PlayAndroidApp instance;
@@ -18,6 +19,7 @@ public class PlayAndroidApp extends Application {
 
     public void setDaggerAppComponent(){
         mAppComponent = DaggerAppComponent.builder().appModule(new AppModule(this))
+                .httpModule(new HttpModule())
                 .build();
     }
     /*

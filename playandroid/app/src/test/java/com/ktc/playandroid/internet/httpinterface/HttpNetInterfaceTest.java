@@ -1,15 +1,25 @@
 package com.ktc.playandroid.internet.httpinterface;
 
+import android.util.Log;
+
+import com.ktc.playandroid.baseview.PlayAndroidApp;
+import com.ktc.playandroid.internet.api.Api;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import javax.inject.Inject;
+
 import static org.junit.Assert.*;
 
 public class HttpNetInterfaceTest {
-
+    //public HttpNetInterface mHttpNetInterface;
+    public Api mApi;
     @Before
     public void setUp() throws Exception {
+        //PlayAndroidApp playAndroidApp =
+        //mHttpNetInterface = new HttpNetInterface();
     }
 
     @After
