@@ -20,7 +20,7 @@
     <style name="maintab_name">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:padding">2dp</item>
+        <item name="android:paddingTop">10dp</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_centerHorizontal">true</item>
 
@@ -28,9 +28,9 @@
     <style name="maintab_num">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:padding">2dp</item>
-        <item name="android:layout_marginLeft">-10dp</item>
-        <item name="android:textSize">12sp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_marginTop">1dp</item>
+        <item name="android:layout_marginLeft">-15dp</item>
         <item name="android:textColor">@color/text_white</item>
         <item name="android:gravity">center</item>
     </style>
