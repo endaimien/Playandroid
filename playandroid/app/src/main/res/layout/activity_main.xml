@@ -17,7 +17,8 @@
             android:layout_height="65dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:background="@drawable/tv_maintab_bac">
+            android:background="@drawable/tv_maintab_bac"
+            android:id="@+id/lin_hometab">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -44,6 +45,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/tv_maintab_bac"
+            android:id="@+id/lin_navtab"
             android:gravity="center">
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -70,6 +72,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/tv_maintab_bac"
+            android:id="@+id/lin_protab"
             android:gravity="center">
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -96,6 +99,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/tv_maintab_bac"
+            android:id="@+id/lin_minitab"
             android:gravity="center">
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -119,7 +123,8 @@
     </LinearLayout>
 
     <!--分界线-->
-    <view
+
+    <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:background="@color/div_gray"
@@ -130,5 +135,6 @@
     <android.support.v4.view.ViewPager
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:id="@+id/vp_main"
         android:layout_above="@+id/vi_maintab_div"/>
 </RelativeLayout>
