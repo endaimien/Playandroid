@@ -12,4 +12,6 @@
 
     <color name="maintab_back_select">#FFC4C4C4</color>
     <color name="maintab_back_default">#ffffff</color>
+
+    <color name="but_login_forget">#ffffff</color>
 </resources>

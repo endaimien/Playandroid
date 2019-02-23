@@ -36,7 +36,7 @@ public class HttpNetInterface {
      * @param page
      * @return homepage essay list
      */
-    Observable<PlayHeader<HomeEssayData>> getHomeEssayList(int page) {
+    public Observable<PlayHeader<HomeEssayData>> getHomeEssayList(int page) {
         return mApi.getHomeEssayList(page);
     }
 
@@ -46,7 +46,7 @@ public class HttpNetInterface {
      * @param
      * @return homepage banner list
      */
-    Observable<PlayHeader<HomeBannerData>> getHomeBannerList() {
+    public Observable<PlayHeader<HomeBannerData>> getHomeBannerList() {
         return mApi.getHomeBannerList();
     }
 
@@ -56,7 +56,7 @@ public class HttpNetInterface {
      * @param
      * @return homepage favorite net list
      */
-    Observable<PlayHeader<HomeFavnetData>> getHomeFavnetList() {
+    public Observable<PlayHeader<HomeFavnetData>> getHomeFavnetList() {
         return mApi.getHomeFavnetList();
     }
 
@@ -67,7 +67,7 @@ public class HttpNetInterface {
      * @return homepage favorite net list
      */
 
-    Observable<PlayHeader<HomeHotkeyData>> getHomeHotkeyList() {
+    public Observable<PlayHeader<HomeHotkeyData>> getHomeHotkeyList() {
         return mApi.getHomeHotkeyList();
     }
 
@@ -78,7 +78,7 @@ public class HttpNetInterface {
      * @param
      * @return navigationpage  list
      */
-    Observable<PlayHeader<NavigationListData>> getNavigationList() {
+    public Observable<PlayHeader<NavigationListData>> getNavigationList() {
         return mApi.getNavigationList();
     }
 
@@ -90,7 +90,7 @@ public class HttpNetInterface {
      * @return ProjectClassify list
      */
 
-    Observable<PlayHeader<ProjectClassifyData>> getProjectClassifyList() {
+    public Observable<PlayHeader<ProjectClassifyData>> getProjectClassifyList() {
         return mApi.getProjectClassifyList();
     }
 
@@ -101,7 +101,7 @@ public class HttpNetInterface {
      * @return ProjectEssay list
      */
 
-    Observable<PlayHeader<ProjectEssayData>> getProjectEssayList(int page, int cid) {
+    public Observable<PlayHeader<ProjectEssayData>> getProjectEssayList(int page, int cid) {
         return mApi.getProjectEssayList(page, cid);
     }
 
@@ -113,8 +113,8 @@ public class HttpNetInterface {
      * @return user information
      */
 
-    Observable<PlayHeader<MineLoginData>> loginforuser(String name, String password) {
-        return loginforuser(name, password);
+    public Observable<PlayHeader<MineLoginData>> loginforuser(String name, String password) {
+        return mApi.loginforuser(name, password);
     }
 
     /**
@@ -123,7 +123,7 @@ public class HttpNetInterface {
      * @param name,password,repassword
      * @return user information
      */
-    Observable<PlayHeader<MineLoginData>> registerforuser(String name, String password, String repassword) {
+    public Observable<PlayHeader<MineLoginData>> registerforuser(String name, String password, String repassword) {
         return mApi.registerforuser(name, password, repassword);
     }
 
@@ -133,7 +133,7 @@ public class HttpNetInterface {
      * @param
      * @return void
      */
-    Observable<PlayHeader> logoutforuser() {
+    public Observable<PlayHeader> logoutforuser() {
         return mApi.logoutforuser();
     }
 }

@@ -4,6 +4,8 @@ import com.ktc.playandroid.mvpcomponent.basemvp.BaseMview;
 import com.ktc.playandroid.mvpcomponent.basemvp.BasePresent;
 import com.ktc.playandroid.mvpcomponent.present.LoginPresent;
 
+import java.util.List;
+
 public interface LoginContract {
     interface View extends BaseMview<LoginPresent> {
         /*
@@ -29,7 +31,7 @@ public interface LoginContract {
 
     }
 
-    interface Presenter extends BasePresent {
+    interface Presenter extends BasePresent<LoginContract.View> {
         /*
          * 登录*/
         void loginIn(String name, String password);
@@ -40,5 +42,8 @@ public interface LoginContract {
         /*
          * 登出*/
         void loginOut();
+
+        List<String> getShareAccount();
+
     }
 }

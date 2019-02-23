@@ -1,14 +1,14 @@
 package com.ktc.playandroid.mvpcomponent.basemvp;
 
+import android.content.Context;
+
 import com.ktc.playandroid.mvpcomponent.contract.LoginContract;
 
-public interface BasePresent {
-    void start();
-    void stop();
+public interface BasePresent<T> {
 
     /*
     * 设置view*/
-    void attachView();
+    void attachView(T pView);
 
     /*
     * 取消设置view*/

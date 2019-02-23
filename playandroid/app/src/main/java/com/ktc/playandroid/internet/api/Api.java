@@ -96,7 +96,7 @@ public interface Api {
      * @param name,password
      * @return user information
      */
-    @PUT("user/login")
+    @POST("user/login")
     @FormUrlEncoded
     Observable<PlayHeader<MineLoginData>> loginforuser(@Field("username") String name, @Field("password") String password);
 
@@ -106,7 +106,7 @@ public interface Api {
      * @param name,password,repassword
      * @return user information
      */
-    @PUT("user/register")
+    @POST("user/register")
     @FormUrlEncoded
     Observable<PlayHeader<MineLoginData>> registerforuser(@Field("username") String name, @Field("password") String password, @Field("repassword") String repassword);
 

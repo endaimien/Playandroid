@@ -1,5 +1,6 @@
 package com.ktc.playandroid.ui.baseui;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -8,6 +9,8 @@ import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.ktc.playandroid.R;
 
 public abstract class BaseFragment extends Fragment{
 
