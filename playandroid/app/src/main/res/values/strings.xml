@@ -23,4 +23,7 @@
 
     <string name="but_login_password">忘记密码</string>
     <string name="but_login_register">注册</string>
+
+    <string name="but_navi_come">进入</string>
+    <string name="but_navi_login">登录</string>>
 </resources>

@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 
@@ -183,8 +184,12 @@ public class LoginActivity extends BaseActivity<LoginPresent> implements LoginCo
 
     @Override
     public void loginSuccess() {
-        showProgress(false);
-        Toast.makeText(LoginActivity.this,"success",Toast.LENGTH_LONG).show();}
+        //showProgress(false);
+        startActivity(new Intent(this,MainActivity.class));
+        this.finish();
+        //Toast.makeText(LoginActivity.this,"success",Toast.LENGTH_LONG).show();
+        }
+
 
     @Override
     public void loginFail() {

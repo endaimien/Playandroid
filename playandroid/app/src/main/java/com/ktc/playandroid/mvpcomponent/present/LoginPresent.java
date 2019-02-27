@@ -15,6 +15,7 @@ import com.ktc.playandroid.internet.bean.ResponeBaseDate;
 import com.ktc.playandroid.internet.bean.mine.MineLoginData;
 import com.ktc.playandroid.internet.httpinterface.HttpNetInterface;
 import com.ktc.playandroid.mvpcomponent.contract.LoginContract;
+import com.ktc.playandroid.util.RxjarUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -65,7 +66,7 @@ public class LoginPresent implements LoginContract.Presenter {
         } catch (Exception e) {
             e.printStackTrace();
         }*/
-       mHttpNeterface.loginforuser(name,password).subscribeOn(Schedulers.io())
+      /* mHttpNeterface.loginforuser(name,password).subscribeOn(Schedulers.io())
                .observeOn(AndroidSchedulers.mainThread())
                .subscribe(new Observer<PlayHeader<MineLoginData>>() {
                    @Override
@@ -92,7 +93,29 @@ public class LoginPresent implements LoginContract.Presenter {
                    public void onComplete() {
 
                    }
-               });
+               });*/
+       mHttpNeterface.loginforuser(name,password).compose(RxjarUtils.rxScheduleTrans())
+               .compose(RxjarUtils.handResuilt()).subscribe(new Observer<MineLoginData>() {
+           @Override
+           public void onSubscribe(Disposable d) {
+               mCompositeDisposable.add(d);
+           }
+
+           @Override
+           public void onNext(MineLoginData mineLoginData) {
+               mView.loginSuccess();
+           }
+
+           @Override
+           public void onError(Throwable e) {
+                    mView.loginFail();
+           }
+
+           @Override
+           public void onComplete() {
+
+           }
+       });
     }
 
     @Override

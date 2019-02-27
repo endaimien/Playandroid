@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/layout4">
+   <LinearLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_marginBottom="200dp"
+       android:layout_alignParentBottom="true"
+       android:layout_centerHorizontal="true"
+       android:orientation="horizontal">
+       <Button
+           android:id="@+id/bt_navi_come"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           style="?android:attr/borderlessButtonStyle"
+           android:text="@string/but_navi_come"
+           />
+       <Button
+           android:id="@+id/bt_navi_login"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           style="?android:attr/borderlessButtonStyle"
+           android:layout_marginLeft="40dp"
+           android:text="@string/but_navi_login"/>
+   </LinearLayout>
+</RelativeLayout>
