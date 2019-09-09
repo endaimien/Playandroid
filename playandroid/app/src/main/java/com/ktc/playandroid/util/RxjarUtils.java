@@ -31,6 +31,12 @@ public class RxjarUtils {
         /*return new ObservableTransformer<PlayHeader<T>, T>() {
             @Override
             public ObservableSource<T> apply(Observable<PlayHeader<T>> upstream) {
+                return null;
+            }
+        };*/
+        /*return new ObservableTransformer<PlayHeader<T>, T>() {
+            @Override
+            public ObservableSource<T> apply(Observable<PlayHeader<T>> upstream) {
 
                 return upstream.flatMap(new Function<PlayHeader<T>, Observable<T>>() {
                     @Override

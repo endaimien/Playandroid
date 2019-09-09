@@ -68,9 +68,9 @@ public class MainActivity extends BaseActivity {
     public void initFragList(){
         mFragments = new ArrayList<Fragment>();
         mFragments.add(HomeFragment.getInstance(0,null));
-        mFragments.add(MineFragment.getInstance(0,null));
-        mFragments.add(ProjectFragment.getInstance(0,null));
         mFragments.add(NavigationFragment.getInstance(0,null));
+        mFragments.add(ProjectFragment.getInstance(0,null));
+        mFragments.add(MineFragment.getInstance(0,null));
     }
     public void initView(){
        mMainPageAdapter = new MainPageAdapter(getSupportFragmentManager(),mFragments);

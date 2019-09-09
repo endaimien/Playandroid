@@ -1,29 +1,33 @@
 package com.ktc.playandroid.internet.bean.project;
 
+import com.google.gson.Gson;
+
 import java.util.List;
 
 public class ProjectEssayData {
 
+
     /**
      * apkLink :
-     * author : littledavid-tech
+     * author : binaryshao
      * chapterId : 294
      * chapterName : 完整项目
      * collect : false
      * courseId : 13
-     * desc : 这个算是对Android学习总结，MVP架构+好多轮子
-     * envelopePic : http://wanandroid.com/blogimgs/9be242c9-e53e-4a54-9f49-d69b04b463b9.png
+     * desc : 玩 Android 客户端，采用 kotlin 语言，Material Design 风格，根据 MVVM 架构使用 Jetpack 架构组件搭建了整套框架
+     * envelopePic : https://www.wanandroid.com/blogimgs/10491b74-b534-48b1-a5fe-d2ac00e20d2d.png
      * fresh : false
-     * id : 7641
-     * link : http://www.wanandroid.com/blog/show/2449
-     * niceDate : 2018-12-11
+     * id : 8996
+     * link : http://www.wanandroid.com/blog/show/2658
+     * niceDate : 1天前
      * origin :
-     * projectLink : https://github.com/littledavid-tech/WanAndroidApp
-     * publishTime : 1544499146000
+     * prefix :
+     * projectLink : https://github.com/binaryshao/WanAndroid-MVVM
+     * publishTime : 1566233222000
      * superChapterId : 294
      * superChapterName : 开源项目主Tab
      * tags : [{"name":"项目","url":"/project/list/1?cid=294"}]
-     * title : 我的涂鸦之作WanAndroid第三方客户端
+     * title : 玩 Android 客户端  MVVM 架构使用 Jetpack 架构组件
      * type : 0
      * userId : -1
      * visible : 1
@@ -43,6 +47,7 @@ public class ProjectEssayData {
     private String link;
     private String niceDate;
     private String origin;
+    private String prefix;
     private String projectLink;
     private long publishTime;
     private int superChapterId;
@@ -53,6 +58,11 @@ public class ProjectEssayData {
     private int visible;
     private int zan;
     private List<TagsBean> tags;
+
+    public static ProjectEssayData objectFromData(String str) {
+
+        return new Gson().fromJson(str, ProjectEssayData.class);
+    }
 
     public String getApkLink() {
         return apkLink;
@@ -158,6 +168,14 @@ public class ProjectEssayData {
         this.origin = origin;
     }
 
+    public String getPrefix() {
+        return prefix;
+    }
+
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
+    }
+
     public String getProjectLink() {
         return projectLink;
     }
@@ -246,6 +264,11 @@ public class ProjectEssayData {
 
         private String name;
         private String url;
+
+        public static TagsBean objectFromData(String str) {
+
+            return new Gson().fromJson(str, TagsBean.class);
+        }
 
         public String getName() {
             return name;

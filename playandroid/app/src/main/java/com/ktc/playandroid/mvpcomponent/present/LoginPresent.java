@@ -94,16 +94,22 @@ public class LoginPresent implements LoginContract.Presenter {
 
                    }
                });*/
-       mHttpNeterface.loginforuser(name,password).compose(RxjarUtils.rxScheduleTrans())
-               .compose(RxjarUtils.handResuilt()).subscribe(new Observer<MineLoginData>() {
-           @Override
-           public void onSubscribe(Disposable d) {
-               mCompositeDisposable.add(d);
-           }
+       mHttpNeterface.loginforuser(name,password)
+               .compose(RxjarUtils.rxScheduleTrans())
+               .compose(RxjarUtils.handResuilt())
+               .subscribe(new Observer<MineLoginData>() {
+               @Override
+               public void onSubscribe(Disposable d) {
+                   mCompositeDisposable.add(d);
+               }
 
-           @Override
-           public void onNext(MineLoginData mineLoginData) {
-               mView.loginSuccess();
+               @Override
+               public void onNext(MineLoginData mineLoginData) {
+                   mView.loginSuccess();
+                   SharedPreferences sharedPreferences = PlayAndroidApp.getInstance().getAppComponent().getSharePrefer();
+                   SharedPreferences.Editor editor = sharedPreferences.edit();
+                   editor.putString("username",name);
+                   editor.commit();
            }
 
            @Override

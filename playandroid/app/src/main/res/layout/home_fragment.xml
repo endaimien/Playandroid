@@ -1,14 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <android.support.v7.widget.SearchView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="home"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</android.support.constraint.ConstraintLayout>
+        android:id="@+id/scv_home_seach"
+        app:queryHint="@string/home_search_hint"
+        app:iconifiedByDefault="false"
+        android:focusable="false"
+        />
+
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/home_banner_heigth"
+        android:id="@+id/vp_home_banner"></android.support.v4.view.ViewPager>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/lrl_project_totol">
+        <android.support.design.widget.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabMaxWidth="0dp"
+            app:tabGravity="fill"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="#e40707"
+            app:tabBackground="@color/text_white"
+            app:tabIndicatorHeight="2dp"
+            android:id="@+id/tab_home_kind" />
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/applayout_distance_16"
+            android:id="@+id/lv_home_list"></ListView>
+    </LinearLayout>
+</LinearLayout>

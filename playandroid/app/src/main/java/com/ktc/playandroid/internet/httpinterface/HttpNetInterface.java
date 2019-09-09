@@ -10,11 +10,16 @@ import com.ktc.playandroid.internet.bean.mine.MineLoginData;
 import com.ktc.playandroid.internet.bean.navigation.NavigationListData;
 import com.ktc.playandroid.internet.bean.project.ProjectClassifyData;
 import com.ktc.playandroid.internet.bean.project.ProjectEssayData;
+import com.ktc.playandroid.internet.bean.project.ProjectHeader;
+
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import io.reactivex.Observable;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -46,7 +51,7 @@ public class HttpNetInterface {
      * @param
      * @return homepage banner list
      */
-    public Observable<PlayHeader<HomeBannerData>> getHomeBannerList() {
+    public Observable<PlayHeader<List<HomeBannerData>>> getHomeBannerList() {
         return mApi.getHomeBannerList();
     }
 
@@ -78,7 +83,7 @@ public class HttpNetInterface {
      * @param
      * @return navigationpage  list
      */
-    public Observable<PlayHeader<NavigationListData>> getNavigationList() {
+    public Observable<PlayHeader<List<NavigationListData>>> getNavigationList() {
         return mApi.getNavigationList();
     }
 
@@ -90,7 +95,7 @@ public class HttpNetInterface {
      * @return ProjectClassify list
      */
 
-    public Observable<PlayHeader<ProjectClassifyData>> getProjectClassifyList() {
+    public Observable<PlayHeader<List<ProjectClassifyData>>> getProjectClassifyList() {
         return mApi.getProjectClassifyList();
     }
 
@@ -101,7 +106,7 @@ public class HttpNetInterface {
      * @return ProjectEssay list
      */
 
-    public Observable<PlayHeader<ProjectEssayData>> getProjectEssayList(int page, int cid) {
+    public Observable<PlayHeader<ProjectHeader>> getProjectEssayList(int page, int cid) {
         return mApi.getProjectEssayList(page, cid);
     }
 
@@ -135,5 +140,14 @@ public class HttpNetInterface {
      */
     public Observable<PlayHeader> logoutforuser() {
         return mApi.logoutforuser();
+    }
+    /**
+     * getDrawable
+     *
+     * @param fileurl
+     * @return void
+     */
+    public Observable<ResponseBody> getDrawable(String fileurl){
+        return mApi.getDrawable(fileurl);
     }
 }

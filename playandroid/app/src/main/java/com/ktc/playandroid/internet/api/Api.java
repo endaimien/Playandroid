@@ -9,10 +9,15 @@ import com.ktc.playandroid.internet.bean.mine.MineLoginData;
 import com.ktc.playandroid.internet.bean.navigation.NavigationListData;
 import com.ktc.playandroid.internet.bean.project.ProjectClassifyData;
 import com.ktc.playandroid.internet.bean.project.ProjectEssayData;
+import com.ktc.playandroid.internet.bean.project.ProjectHeader;
 
 //import javax.validation.constraints.Null;
 
+import java.util.List;
+
 import io.reactivex.Observable;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -20,9 +25,10 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
+import retrofit2.http.Url;
 
 public interface Api {
-    public static String HOST = "http://www.wanandroid.com/";
+    public static String HOST = "https://www.wanandroid.com/";
 
     /**
      * get homepage esssay list
@@ -40,7 +46,7 @@ public interface Api {
      * @return homepage banner list
      */
     @GET("banner/json")
-    Observable<PlayHeader<HomeBannerData>> getHomeBannerList();
+    Observable<PlayHeader<List<HomeBannerData>>> getHomeBannerList();
 
     /**
      * get homepage favorite net list
@@ -68,7 +74,7 @@ public interface Api {
      * @return navigationpage  list
      */
     @GET("navi/json")
-    Observable<PlayHeader<NavigationListData>> getNavigationList();
+    Observable<PlayHeader<List<NavigationListData>>> getNavigationList();
 
 
     /**
@@ -78,7 +84,7 @@ public interface Api {
      * @return ProjectClassify list
      */
     @GET("project/tree/json")
-    Observable<PlayHeader<ProjectClassifyData>> getProjectClassifyList();
+    Observable<PlayHeader<List<ProjectClassifyData>>> getProjectClassifyList();
 
     /**
      * get ProjectEssay list
@@ -87,7 +93,7 @@ public interface Api {
      * @return ProjectEssay list
      */
     @GET("project/list/{page}/json")
-    Observable<PlayHeader<ProjectEssayData>> getProjectEssayList(@Path("page") int page, @Query("cid") int cid);
+    Observable<PlayHeader<ProjectHeader>> getProjectEssayList(@Path("page") int page, @Query("cid") int cid);
 
 
     /**
@@ -119,4 +125,7 @@ public interface Api {
     @GET("user/logout/json")
     Observable<PlayHeader> logoutforuser();
 
+
+    @GET
+    Observable<ResponseBody> getDrawable(@Url String fileurl);
 }

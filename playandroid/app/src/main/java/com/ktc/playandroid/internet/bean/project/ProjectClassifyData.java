@@ -1,8 +1,11 @@
 package com.ktc.playandroid.internet.bean.project;
 
+import com.google.gson.Gson;
+
 import java.util.List;
 
 public class ProjectClassifyData {
+
 
     /**
      * children : []
@@ -11,7 +14,6 @@ public class ProjectClassifyData {
      * name : 完整项目
      * order : 145000
      * parentChapterId : 293
-     * userControlSetTop : false
      * visible : 0
      */
 
@@ -20,9 +22,13 @@ public class ProjectClassifyData {
     private String name;
     private int order;
     private int parentChapterId;
-    private boolean userControlSetTop;
     private int visible;
     private List<?> children;
+
+    public static ProjectClassifyData objectFromData(String str) {
+
+        return new Gson().fromJson(str, ProjectClassifyData.class);
+    }
 
     public int getCourseId() {
         return courseId;
@@ -62,14 +68,6 @@ public class ProjectClassifyData {
 
     public void setParentChapterId(int parentChapterId) {
         this.parentChapterId = parentChapterId;
-    }
-
-    public boolean isUserControlSetTop() {
-        return userControlSetTop;
-    }
-
-    public void setUserControlSetTop(boolean userControlSetTop) {
-        this.userControlSetTop = userControlSetTop;
     }
 
     public int getVisible() {

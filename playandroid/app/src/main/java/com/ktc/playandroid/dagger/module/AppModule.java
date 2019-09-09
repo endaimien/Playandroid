@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
+import com.ktc.playandroid.util.ConstantClass;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -23,6 +25,6 @@ public class AppModule {
    @Provides
    @Singleton
     public SharedPreferences provideSharedPre(){
-       return PreferenceManager.getDefaultSharedPreferences(mContext);
+       return mContext.getSharedPreferences(ConstantClass.SHAREDPRENAME,Context.MODE_PRIVATE);
    }
 }
